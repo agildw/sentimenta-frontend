@@ -5,7 +5,7 @@ This is the frontend application for Sentimenta, a project that performs sentime
 To get started with this project, first clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/your-username/sentimenta-frontend.git
+git clone https://github.com/agildw/sentimenta-frontend.git
 cd sentimenta-frontend
 ```
 Then, install the dependencies using npm:
@@ -35,7 +35,6 @@ To build the project for production, use the following command:
 ```bash
 npm run build
 ```
-This will create a production build in the dist directory.
 
 Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
