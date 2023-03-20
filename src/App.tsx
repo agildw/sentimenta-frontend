@@ -35,6 +35,10 @@ function App() {
         });
       });
   };
+  const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
+  };
   return (
     <div className="App">
       <section className="pt-10 overflow-hidden sm:pt-16 lg:pt-24">
@@ -65,12 +69,12 @@ function App() {
           <div className="max-w-xl mx-auto mt-8">
             <form className="w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
               <div className="mb-4">
-                <input
-                  className="appearance-none rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-fit"
+                <textarea
+                  className="appearance-none rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-auto"
                   id="movie-review"
                   name="movie-review"
                   placeholder="Enter your movie review"
-                  type="text"
+                  onChange={handleReviewChange}
                 />
               </div>
               <div className="flex items-center justify-between">
