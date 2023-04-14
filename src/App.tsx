@@ -15,15 +15,11 @@ function App() {
       e.currentTarget.elements.namedItem("movie-review") as HTMLInputElement
     )?.value;
 
-    const data = new FormData();
-    data.append("review", review);
-
     setSentiment("");
-
     setMessage({ loading: true, message: "Loading..." });
 
     axios
-      .post(`${import.meta.env.VITE_API_URL}/predict`, data)
+      .get(`${import.meta.env.VITE_API_URL}/predict?review=${review}`)
       .then((res) => {
         setMessage({ loading: false, message: "" });
         setSentiment(res.data.prediction);
@@ -41,7 +37,7 @@ function App() {
   };
   return (
     <div className="App">
-      <section className="pt-10 overflow-hidden sm:pt-16 lg:pt-24">
+      <section className="pt-10 overflow-hidden sm:pt-16 lg:pt-24 ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
@@ -130,6 +126,10 @@ function App() {
           )}
         </div>
       </section>
+      <div className="fixed inset-x-0 bottom-0 mb-3">
+        Made with ❤️ for
+        <span className="font-bold"> Tugas Besar AI</span>
+      </div>
     </div>
   );
 }
